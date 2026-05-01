@@ -1,0 +1,19 @@
+spring:
+  mongodb:
+    uri: mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@cluster0.mqjwdt5.mongodb.net/aiactivityfitness?retryWrites=true&w=majority
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+kafka:
+  topic:
+    name: activity-events
+server:
+  port: 8082
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    instance-id: ${spring.application.name}:${server.port}
+
